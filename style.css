@@ -1,7 +1,17 @@
 html {
-    height: 100%;
-    overflow: hidden;
+    margin:0;
+    padding:0;
+    /* overflow-x: hidden; */
+}
+
+body{
     background: radial-gradient(ellipse at bottom, #1b2735 0%,#090a0f 100%);
+    background-size: 100%;
+    background-attachment: fixed;
+}
+
+.intro{
+    height:100vh;
 }
 
 #title {
@@ -212,7 +222,7 @@ html {
 #stars:after {
     content: '';
     position: absolute;
-    top: 2000px;
+    top: 100%;
     width: 1px;
     height: 1px;
     background: transparent;
@@ -456,7 +466,7 @@ html {
 #stars2:after {
     content: '';
     position: absolute;
-    top: 2000px;
+    top: 100%;
     width: 2px;
     height: 2px;
     background: transparent;
@@ -549,7 +559,7 @@ html {
 #stars3:after {
     content: '';
     position: absolute;
-    top: 2000px;
+    top: 100%;
     width: 3px;
     height: 3px;
     background: transparent;
@@ -587,11 +597,80 @@ html {
         transform: translateY(0px);
     }
     to {
-        transform: translateY(-2000px);
+        transform: translateY(-100vh);
     }
 }
 
+#stars, #stars2, #stars3{
+    z-index: -2;
+}
 
+.projects{
+    margin-top:150px;
+    display:flex;
+    flex-direction: column;
+    text-align:center;
+}
 
+#project-title{
+    background: -webkit-linear-gradient(white, #38495a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: Lato;
+    font-size:50px;
+    font-weight:300;
+}
 
+.card-wrapper{
+    display:flex;
+    width:100%;
+    justify-content:center;
+    margin-bottom:200px;
+    margin-top:100px;
+}
 
+.project-card{
+    min-width:300px;
+    min-height:400px;
+    position:relative;
+    font-family:Lato;
+    margin-left:50px;
+    text-align:center;
+    transform-style: preserve-3d;
+    transition:all 0.5s ease;
+    font-weight:800;
+    font-size:2em;
+    cursor:pointer;
+}
+
+.project-card:hover{
+    transform:rotateY(180deg);
+}
+
+.front{
+    position:absolute;
+    background:linear-gradient(to bottom, rgb(2, 31, 68), rgb(2, 2, 31));
+    backface-visibility: hidden;
+    height:100%;
+    width:100%;
+    color:white;
+    border-radius:10px;
+}
+
+.back{
+    position:absolute;
+    backface-visibility: hidden;
+    background:white;
+    height:100%;
+    width:100%;
+    color:rgb(2, 2, 31);
+    transform: rotateY(180deg);
+    box-shadow:0 0 30px white;
+    border-radius:10px;
+}
+
+@media only screen and (max-width:980px){
+    .card-wrapper{
+        flex-direction: column;
+    }
+}
